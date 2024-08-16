@@ -2,17 +2,26 @@
 pragma solidity ^0.8.0;
 
 import "./ReportStorage.sol";
+import "./JurorSelection.sol";
+import "./AccessControl.sol";
 
-contract Verification {
+contract Verification is AccessControl {
     ReportStorage public reportStorage;
+    JurorSelection public jurorSelection;
 
     event ReportVerified(uint256 reportId, address verifier);
 
-    constructor(address _reportStorage) {
+    constructor(address _reportStorage, address _jurorSelection) {
         reportStorage = ReportStorage(_reportStorage);
+        jurorSelection = JurorSelection(_jurorSelection);
     }
 
-    function verifyReport(uint256 _reportId) public {
+    modifier onlyJuror(uint256 _reportId) {
+        require(jurorSelection.isJuror(msg.sender, _reportId), "Not a juror for this report");
+        _;
+    }
+
+    function verifyReport(uint256 _reportId) public onlyJuror(_reportId) {
         (, , bool verified, ) = reportStorage.getReport(_reportId);
         require(!verified, "Report already verified");
 
