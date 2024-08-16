@@ -11,7 +11,6 @@
 <p align="center">
   <a href="https://github.com/nzengi/zengi_AML_platform/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/nzengi/zengi_AML_platform"></a>
   <a href="https://github.com/nzengi/zengi_AML_platform/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nzengi/zengi_AML_platform"></a>
-  <a href="https://github.com/nzengi/zengi_AML_platform/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/nzengi/zengi_AML_platform"></a>
 </p>
 
 <p align="center">
