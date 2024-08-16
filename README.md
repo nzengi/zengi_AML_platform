@@ -11,10 +11,11 @@
 <p align="center">
   <a href="https://github.com/nzengi/zengi_AML_platform/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/nzengi/zengi_AML_platform"></a>
   <a href="https://github.com/nzengi/zengi_AML_platform/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nzengi/zengi_AML_platform"></a>
+  <a href="https://github.com/nzengi/zengi_AML_platform/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/nzengi/zengi_AML_platform"></a>
 </p>
 
 <p align="center">
-  <img src="https://via.placeholder.com/100x50" alt="Zengi AML Platform Screenshot" width="100%">
+  <img src="https://via.placeholder.com/1000x500" alt="Zengi AML Platform Screenshot" width="100%">
 </p>
 
 ## 🚀 Overview
@@ -39,19 +40,11 @@
 
 ## 📦 Installation
 
-To get started with the Zengi AML Platform, follow these steps:
+Follow these steps to get the Zengi AML Platform up and running on your local machine:
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/nzengi/zengi_AML_platform.git
-   cd zengi_AML_platform
-   ```
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-3. **Compile smart contracts**:
-   ```bash
-   npx hardhat compile
-   ```
-   under development
+### Install dependencies:
+```bash
+npm install
+```
+
+under development..be carefull
