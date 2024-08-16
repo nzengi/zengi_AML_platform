@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ReportStorage {
+import "./AccessControl.sol";
+
+contract ReportStorage is AccessControl {
     struct Report {
         uint256 id;
         string ipfsHash;
@@ -19,6 +21,12 @@ contract ReportStorage {
         reportCounter = 0;
     }
 
+    // Sadece yetkilendirilmiş sözleşmelerin güncelleyebilmesi için modifier ekledik
+    modifier onlyAuthorized() {
+        require(hasRole(DEFAULT_ADMIN_ROLE, msg.sender), "Not authorized");
+        _;
+    }
+
     function submitReport(string memory _ipfsHash) public returns (uint256) {
         reportCounter++;
         reports[reportCounter] = Report({
@@ -32,13 +40,8 @@ contract ReportStorage {
         return reportCounter;
     }
 
-    function getReport(uint256 _reportId) public view returns (string memory, address, bool, uint256) {
-        require(_reportId > 0 && _reportId <= reportCounter, "Invalid report ID");
-        Report storage report = reports[_reportId];
-        return (report.ipfsHash, report.reporter, report.verified, report.timestamp);
-    }
-
-    function updateVerificationStatus(uint256 _reportId, bool _status) external {
+    // İhbar doğrulama durumu güncelleme sadece yetkilendirilmiş sözleşmeler tarafından yapılabilir
+    function updateVerificationStatus(uint256 _reportId, bool _status) external onlyAuthorized {
         reports[_reportId].verified = _status;
     }
 }
