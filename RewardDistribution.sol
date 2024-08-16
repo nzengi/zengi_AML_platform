@@ -2,8 +2,11 @@
 pragma solidity ^0.8.0;
 
 import "./ReportStorage.sol";
+import "./SafeMath.sol";
 
 contract RewardDistribution {
+    using SafeMath for uint256;
+
     mapping(address => uint256) public rewards;
     ReportStorage public reportStorage;
 
@@ -17,7 +20,7 @@ contract RewardDistribution {
         (, address reporter, bool verified, ) = reportStorage.getReport(_reportId);
         require(verified, "Report not verified");
 
-        rewards[reporter] += 100;  // Ödül miktarı örnek olarak sabit
+        rewards[reporter] = rewards[reporter].add(100);  // Ödül miktarı sabit olarak ayarlandı
         emit RewardPaid(reporter, 100);
     }
 
