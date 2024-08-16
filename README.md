@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://via.placeholder.com/1000x500" alt="Zengi AML Platform Screenshot" width="100%">
+  <img src="https://via.placeholder.com/100x50" alt="Zengi AML Platform Screenshot" width="100%">
 </p>
 
 ## 🚀 Overview
